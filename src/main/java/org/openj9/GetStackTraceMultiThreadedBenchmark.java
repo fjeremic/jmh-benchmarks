@@ -37,8 +37,8 @@ import org.openjdk.jmh.infra.Blackhole;
 @Fork(value = 1)
 @Warmup(iterations = 1)
 @Measurement(iterations = 3)
-@Threads(1)
-public class GetStackTraceBenchmark {
+@Threads(4)
+public class GetStackTraceMultiThreadedBenchmark {
 
     @Benchmark
     public void testgetStackTrace(Blackhole blackhole) {
