@@ -24,16 +24,6 @@ public class ConcurrentLinkedQueueBenchmark {
         }
     }
 
-    @Setup
-    public void setup() {
-        src = new byte[130];
-        dst = new char[130];
-
-        for (int i = 0; i < src.length; ++i) {
-            src[i] = (byte)i;
-        }
-    }
-
     @Benchmark
     public void testOffer(Tid tid) {
         int r = ((1001 + tid.tid) * 10001) % 1000001;
