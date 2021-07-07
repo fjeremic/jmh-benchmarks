@@ -27,6 +27,7 @@ public class StringLatin1Benchmark {
 
     @Benchmark
     public void testInflate() {
-        StringLatin1.inflate(src, 0, dst, 0, len);
+        // To enable this benchmark we need to recompile the StringLatin1 class and expose this API as public
+        // StringLatin1.inflate(src, 0, dst, 0, len);
     }
 }
