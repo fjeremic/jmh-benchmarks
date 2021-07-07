@@ -7,7 +7,7 @@ import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 
 @Fork(value = 1)
-@Warmup(iterations = 3, time = 2000, timeUnit = TimeUnit.MILLISECONDS)
+@Warmup(iterations = 10, time = 2000, timeUnit = TimeUnit.MILLISECONDS)
 @Measurement(iterations = 3, time = 1000, timeUnit = TimeUnit.MILLISECONDS)
 @State(Scope.Benchmark)
 public class ReflectMethodInvokeBenchmark {
@@ -18,11 +18,11 @@ public class ReflectMethodInvokeBenchmark {
 
     @Setup
     public void setup() throws NoSuchMethodException, IllegalAccessException {
-	m = ReflectMethodInvokeBenchmark.class.getDeclaredMethod("process", String.class);
+        m = ReflectMethodInvokeBenchmark.class.getDeclaredMethod("process", String.class);
     }
 
     @Benchmark
     public void testInvoke() throws IllegalAccessException, InvocationTargetException {
-	m.invoke(null, "test");
+        m.invoke(null, "test");
     }
 }
